@@ -1,7 +1,8 @@
 import React from "react";
+import "app/app.scss";
 
 interface GlobalProps {}
 
 export const App: React.FC<GlobalProps> = () => {
-  return <div>Hello world</div>;
+  return <div className="app-container">Hello world</div>;
 };
