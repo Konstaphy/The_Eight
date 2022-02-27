@@ -22,7 +22,7 @@
 		"@typescript-eslint"
 	],
 	"rules": {
-		"indent": 2,
+		"indent": ["error", 2],
 		"quotes": [
 			"error",
 			"double"
@@ -39,6 +39,12 @@
 				"printWidth": 120,
 				"semi": true,
 				"indent": 2
+			}
+		],
+		"@typescript-eslint/no-empty-interface": [
+			"off",
+			{
+				"allowSingleExtends": true
 			}
 		]
 	}
