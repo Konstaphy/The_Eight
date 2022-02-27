@@ -1,5 +1,6 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./header.scss";
+import { useSpring, animated, config } from "react-spring";
 
 interface HeaderProps {
   setHeaderShown: (isHeaderShown: boolean) => void;
@@ -7,16 +8,16 @@ interface HeaderProps {
 }
 
 export const Header: React.FC<HeaderProps> = (props) => {
-  useEffect(() => {
-    setTimeout(() => {
-      props.setHeaderShown(false);
-    }, 5000);
-  }, []);
-  if (props.isHeaderShown)
-    return (
-      <div className="header">
+  const st = useSpring({
+    to: { opacity: 1 },
+    from: { opacity: 0 },
+    config: config.molasses,
+  });
+  return (
+    <div className="header-wrapper">
+      <animated.div style={st} className="header">
         <div className="header__logo">С 8 марта!</div>
-      </div>
-    );
-  return <></>;
+      </animated.div>
+    </div>
+  );
 };
