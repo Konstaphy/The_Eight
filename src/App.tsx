@@ -1,11 +1,7 @@
-import React from 'react';
+import React from "react";
 
 interface GlobalProps {}
 
 export const App: React.FC<GlobalProps> = () => {
-    return (
-        <div>
-            Hello world
-        </div>
-    );
+  return <div>Hello world</div>;
 };

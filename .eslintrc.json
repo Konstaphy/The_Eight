@@ -22,10 +22,7 @@
 		"@typescript-eslint"
 	],
 	"rules": {
-		"indent": [
-			"warning",
-			2
-		],
+		"indent": 2,
 		"linebreak-style": [
 			"error",
 			"windows"
