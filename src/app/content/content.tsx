@@ -7,7 +7,7 @@ export const Content = () => {
     to: { opacity: 1 },
     from: { opacity: 0 },
     config: config.molasses,
-    delay: 1200,
+    delay: 200,
   });
   return (
     <animated.main style={st} className="content">
