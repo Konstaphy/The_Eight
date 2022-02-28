@@ -25,5 +25,3 @@ export const SquaresList: React.FC<SquaresListProps> = (props) => {
     </Droppable>
   );
 };
-
-export default SquaresList;

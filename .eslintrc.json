@@ -19,7 +19,8 @@
 	},
 	"plugins": [
 		"react",
-		"@typescript-eslint"
+		"@typescript-eslint",
+		"eslint-plugin-import"
 	],
 	"rules": {
 		"indent": ["warn", 2],
@@ -31,6 +32,7 @@
 		"camelcase": "warn",
 		"max-lines": ["warn", 100],
 		"@typescript-eslint/no-invalid-this": 2,
+		"import/no-default-export": "warn",
 		"prettier/prettier": [
 			"warn",
 			{

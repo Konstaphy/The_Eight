@@ -2,15 +2,17 @@ import React, { useState } from "react";
 import "./content.scss";
 import { animated, config, useSpring } from "react-spring";
 import { DragDropContext, DropResult } from "react-beautiful-dnd";
-import SquaresList from "./squaresList/squaresList";
+import { SquaresList } from "./squaresList/squaresList";
 import { useRandomNumbers } from "../hooks/useRandomNumbers";
 
-export const Content = () => {
+interface ContentProps {}
+
+export const Content: React.FC<ContentProps> = () => {
   const st = useSpring({
     to: { opacity: 1 },
     from: { opacity: 0 },
     config: config.molasses,
-    delay: 200,
+    delay: 300,
   });
 
   const onSuccess = () => {

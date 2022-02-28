@@ -1,16 +1,21 @@
 import React, { useState } from "react";
 import "app/app.scss";
-import { Header } from "./header/header";
+import { Modal } from "./modal/modal";
 import { Content } from "./content/content";
 
 interface GlobalProps {}
 
 export const App: React.FC<GlobalProps> = () => {
-  const [isHeaderShown, setHeaderShown] = useState(true);
+  const [isModalShown, setModalShown] = useState(true);
+  if (!isModalShown)
+    return (
+      <div className="app-container">
+        <Content />
+      </div>
+    );
   return (
     <div className="app-container">
-      <Header setHeaderShown={setHeaderShown} isHeaderShown={isHeaderShown} />
-      <Content />
+      <Modal setModalShown={setModalShown} isModalShown={isModalShown} />
     </div>
   );
 };
