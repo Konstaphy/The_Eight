@@ -1,18 +1,18 @@
 import React from "react";
-import "./header.scss";
-import { useSpring, animated, config } from "react-spring";
+import "./modal.scss";
+import { animated, config, useSpring } from "react-spring";
 
 interface HeaderProps {
-  setHeaderShown: (isHeaderShown: boolean) => void;
-  isHeaderShown: boolean;
+  setModalShown: (isHeaderShown: boolean) => void;
+  isModalShown: boolean;
 }
 
-export const Header: React.FC<HeaderProps> = (props) => {
+export const Modal: React.FC<HeaderProps> = (props) => {
   const st = useSpring({
     to: { opacity: 1 },
     from: { opacity: 0 },
     config: config.slow,
-    delay: 1000,
+    delay: 500,
   });
 
   const stopProp = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
@@ -20,10 +20,10 @@ export const Header: React.FC<HeaderProps> = (props) => {
     event.preventDefault();
   };
 
-  if (!props.isHeaderShown) return <></>;
+  if (!props.isModalShown) return <></>;
 
   return (
-    <div className="header-wrapper" onClick={() => props.setHeaderShown(false)}>
+    <div className="header-wrapper" onClick={() => props.setModalShown(false)}>
       <animated.div style={st} className="header" onClick={(e) => stopProp(e)}>
         <div className="header__logo">С 8 марта!</div>
       </animated.div>

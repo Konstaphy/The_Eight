@@ -19,20 +19,22 @@
 	},
 	"plugins": [
 		"react",
-		"@typescript-eslint"
+		"@typescript-eslint",
+		"eslint-plugin-import"
 	],
 	"rules": {
 		"indent": ["warn", 2],
-		"quotes": [
-			"warn",
-			"double"
-		],
-		"semi": [
-			"warn",
-			"always"
-		],
+		"quotes": ["warn", "double"],
+		"semi": ["warn", "always"],
+		"eqeqeq": "warn",
+		"use-isnan": "warn",
+		"prefer-const": "warn",
+		"camelcase": "warn",
+		"max-lines": ["warn", 100],
+		"@typescript-eslint/no-invalid-this": 2,
+		"import/no-default-export": "warn",
 		"prettier/prettier": [
-			"off",
+			"warn",
 			{
 				"trailingComma": "es5",
 				"singleQuote": false,

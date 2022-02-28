@@ -1,16 +1,27 @@
 import React, { useState } from "react";
 import "app/app.scss";
-import { Header } from "./header/header";
+import { Modal } from "./modal/modal";
 import { Content } from "./content/content";
+import { Picture } from "./picture/picture";
 
 interface GlobalProps {}
 
 export const App: React.FC<GlobalProps> = () => {
-  const [isHeaderShown, setHeaderShown] = useState(true);
+  const [isModalShown, setModalShown] = useState(true);
+  const [isPictureShown, setPictureShown] = useState(false);
+  if (isPictureShown) return <Picture setPictureShown={setPictureShown} />;
+  if (!isModalShown) {
+    return (
+      <div className="app-container">
+        <Content setPictureShown={setPictureShown} />
+      </div>
+    );
+  }
   return (
     <div className="app-container">
-      <Header setHeaderShown={setHeaderShown} isHeaderShown={isHeaderShown} />
-      <Content />
+      <Modal setModalShown={setModalShown} isModalShown={isModalShown} />
     </div>
   );
 };
+
+//TODO: милый текст и картинки
