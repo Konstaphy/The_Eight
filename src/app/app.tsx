@@ -24,5 +24,4 @@ export const App: React.FC<GlobalProps> = () => {
   );
 };
 
-//TODO: отображение картинки и ресет стейта
 //TODO: милый текст и картинки

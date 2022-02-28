@@ -24,6 +24,7 @@ export const Picture: React.FC<PictureProps> = (props) => {
     <div className="picture-background" onClick={() => props.setPictureShown(false)}>
       <div className="picture" onClick={stopProp}>
         <animated.img style={st} src={test} alt="test" />
+        <h3 className="picture__description">Нажми на фон чтобы начать заного!</h3>
       </div>
     </div>
   );
