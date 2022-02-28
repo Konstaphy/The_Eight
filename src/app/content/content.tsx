@@ -15,37 +15,35 @@ export const Content = () => {
 
   return (
     <animated.main style={st} className="content">
-      <DragDropContext onDragEnd={() => {}}>
+      <DragDropContext
+        onDragEnd={(record) => {
+          console.log(record);
+        }}
+      >
         <Droppable droppableId={"1"}>
-          {(provided) => (
-            <ul
-              className="content__squares"
-              {...provided.droppableProps}
-              ref={provided.innerRef}
-            >
-              {numbers.map((num) => {
-                return (
-                  <Draggable
-                    draggableId={num.toString()}
-                    index={num}
-                    key={num.toString()}
-                  >
-                    {(provided) => (
-                      <li
-                        className="content__item"
-                        ref={provided.innerRef}
-                        {...provided.dragHandleProps}
-                        {...provided.draggableProps}
-                      >
-                        {num}
-                      </li>
-                    )}
-                  </Draggable>
-                );
-              })}
-              {provided.placeholder}
-            </ul>
-          )}
+          {(provided) => {
+            return (
+              <ul className="content__squares" {...provided.droppableProps} ref={provided.innerRef}>
+                {numbers.map((num) => {
+                  return (
+                    <Draggable draggableId={num.toString()} index={num} key={num.toString()}>
+                      {(provided) => (
+                        <li
+                          className="content__item"
+                          ref={provided.innerRef}
+                          {...provided.dragHandleProps}
+                          {...provided.draggableProps}
+                        >
+                          {num}
+                        </li>
+                      )}
+                    </Draggable>
+                  );
+                })}
+                {provided.placeholder}
+              </ul>
+            );
+          }}
         </Droppable>
       </DragDropContext>
     </animated.main>

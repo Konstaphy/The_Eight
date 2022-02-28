@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import "./header.scss";
 import { useSpring, animated, config } from "react-spring";
 
