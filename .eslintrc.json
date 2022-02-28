@@ -32,7 +32,7 @@
 			"always"
 		],
 		"prettier/prettier": [
-			"warn",
+			"off",
 			{
 				"trailingComma": "es5",
 				"singleQuote": false,

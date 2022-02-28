@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import "./content.scss";
 import { config, useSpring, animated } from "react-spring";
-import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
+import { DragDropContext, Draggable, Droppable, DropResult } from "react-beautiful-dnd";
 
 export const Content = () => {
   const st = useSpring({
@@ -11,13 +11,21 @@ export const Content = () => {
     delay: 200,
   });
 
-  const numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8];
+  const onDragEnd = (record: DropResult) => {
+    if (record.destination?.index){
+      const [newNumbers] = numbers.splice(record.source.index, 1);
+      numbers.splice(record.destination?.index, 0, newNumbers);
+    }
+    setNumber(numbers);
+  };
+
+  const [numbers, setNumber] = useState([0, 1, 2, 3, 4, 5, 6, 7, 8]);
 
   return (
     <animated.main style={st} className="content">
       <DragDropContext
         onDragEnd={(record) => {
-          console.log(record);
+          onDragEnd(record);
         }}
       >
         <Droppable droppableId={"1"}>
