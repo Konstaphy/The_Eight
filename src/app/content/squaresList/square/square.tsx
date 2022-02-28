@@ -1,5 +1,5 @@
 import React from "react";
-import {Draggable} from "react-beautiful-dnd";
+import { Draggable, DraggableStateSnapshot, DraggingStyle, NotDraggingStyle } from "react-beautiful-dnd";
 
 interface SquareProps {
   number: number;
@@ -7,12 +7,10 @@ interface SquareProps {
 }
 
 const Square: React.FC<SquareProps> = (props) => {
-  function getStyle(style: any, snapshot: any) {
+  function getStyle(style: DraggingStyle | NotDraggingStyle | undefined, snapshot: DraggableStateSnapshot) {
     if (!snapshot.isDropAnimating) {
       return style;
     }
-
-    // patching the existing style
     return {
       ...style,
       transition: "all 1s ease",
