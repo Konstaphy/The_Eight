@@ -13,8 +13,8 @@ export const Content = () => {
   });
 
   const onDragEnd = (record: DropResult) => {
-    if (record.destination?.index){
-      const items = numbers;
+    if (record.destination?.index !== undefined){
+      const items = [...numbers];
       const [reorderedItems] = items.splice(record.source.index, 1);
       items.splice(record.destination.index, 0, reorderedItems);
       if (items.every((num, index) => num === index))
