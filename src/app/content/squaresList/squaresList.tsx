@@ -9,7 +9,7 @@ interface SquaresListProps {
 
 export const SquaresList: React.FC<SquaresListProps> = (props) => {
   return (
-    <Droppable droppableId={"numbers"}>
+    <Droppable droppableId={"numbers"} direction="horizontal">
       {(provided) => (
         <ul className="content__squares" {...provided.droppableProps} ref={provided.innerRef}>
           {props.numbers.map((num, index) => {
