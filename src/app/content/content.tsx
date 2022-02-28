@@ -13,10 +13,13 @@ export const Content = () => {
 
   const onDragEnd = (record: DropResult) => {
     if (record.destination?.index){
-      const [newNumbers] = numbers.splice(record.source.index, 1);
-      numbers.splice(record.destination?.index, 0, newNumbers);
+      const items = numbers;
+      const [reorderedItems] = items.splice(record.source.index, 1);
+      items.splice(record.destination.index, 0, reorderedItems);
+      if (items.every((num, index) => num === index))
+        console.log("you're right!");
+      setNumber(items);
     }
-    setNumber(numbers);
   };
 
   const [numbers, setNumber] = useState([0, 1, 2, 3, 4, 5, 6, 7, 8]);
@@ -24,17 +27,15 @@ export const Content = () => {
   return (
     <animated.main style={st} className="content">
       <DragDropContext
-        onDragEnd={(record) => {
-          onDragEnd(record);
-        }}
+        onDragEnd={onDragEnd}
       >
-        <Droppable droppableId={"1"}>
+        <Droppable droppableId={"numbers"}>
           {(provided) => {
             return (
               <ul className="content__squares" {...provided.droppableProps} ref={provided.innerRef}>
-                {numbers.map((num) => {
+                {numbers.map((num, index) => {
                   return (
-                    <Draggable draggableId={num.toString()} index={num} key={num.toString()}>
+                    <Draggable draggableId={num.toString()} index={index} key={num.toString()}>
                       {(provided) => (
                         <li
                           className="content__item"
