@@ -3,6 +3,7 @@ import "./content.scss";
 import { animated, config, useSpring } from "react-spring";
 import { DragDropContext, DropResult } from "react-beautiful-dnd";
 import SquaresList from "./squaresList/squaresList";
+import { useRandomNumbers } from "../hooks/useRandomNumbers";
 
 export const Content = () => {
   const st = useSpring({
@@ -12,17 +13,28 @@ export const Content = () => {
     delay: 200,
   });
 
+  const onSuccess = () => {
+    console.log("you're right!");
+  };
+
+  const reorder = (dest: number, src: number, arr: number[]) => {
+    const items = arr;
+    const [reorderedItems] = items.splice(src, 1);
+    items.splice(dest, 0, reorderedItems);
+    return items;
+  };
+
   const onDragEnd = (record: DropResult) => {
     if (record.destination?.index !== undefined) {
-      const items = [...numbers];
-      const [reorderedItems] = items.splice(record.source.index, 1);
-      items.splice(record.destination.index, 0, reorderedItems);
-      if (items.every((num, index) => num === index)) console.log("you're right!");
+      // Updates indexes
+      const items = reorder(record.destination?.index, record.source.index, numbers);
+
+      if (items.every((num, index) => num === index)) onSuccess();
       setNumber(items);
     }
   };
 
-  const [numbers, setNumber] = useState([0, 1, 2, 3, 4, 5, 6, 7, 8].sort(() => Math.random() - 0.5));
+  const [numbers, setNumber] = useState(useRandomNumbers());
 
   return (
     <DragDropContext onDragEnd={onDragEnd}>

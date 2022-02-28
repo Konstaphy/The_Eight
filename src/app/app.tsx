@@ -15,7 +15,5 @@ export const App: React.FC<GlobalProps> = () => {
   );
 };
 
-//TODO: eslint settings
-//TODO: рефакторинг всего этого драг-дерьма
 //TODO: отображение картинки и ресет стейта
 //TODO: милый текст и картинки

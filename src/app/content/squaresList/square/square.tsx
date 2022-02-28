@@ -6,14 +6,14 @@ interface SquareProps {
   index: number;
 }
 
-const Square: React.FC<SquareProps> = (props) => {
+export const Square: React.FC<SquareProps> = (props) => {
   function getStyle(style: DraggingStyle | NotDraggingStyle | undefined, snapshot: DraggableStateSnapshot) {
     if (!snapshot.isDropAnimating) {
       return style;
     }
     return {
       ...style,
-      transition: "all 1s ease",
+      transition: "all .5s ease-in",
     };
   }
   return (
@@ -32,5 +32,3 @@ const Square: React.FC<SquareProps> = (props) => {
     </Draggable>
   );
 };
-
-export default Square;
