@@ -3,12 +3,14 @@ import "./content.scss";
 import { animated, config, useSpring } from "react-spring";
 import { DragDropContext, DropResult } from "react-beautiful-dnd";
 import { SquaresList } from "./squaresList/squaresList";
-import { useRandomNumbers } from "../hooks/useRandomNumbers";
+import { useRandomNumbers } from "../../hooks/useRandomNumbers";
 import { Title } from "./title/title";
 
-interface ContentProps {}
+interface ContentProps {
+  setPictureShown: (isPictureShown: boolean) => void;
+}
 
-export const Content: React.FC<ContentProps> = () => {
+export const Content: React.FC<ContentProps> = (props) => {
   const st = useSpring({
     to: { opacity: 1 },
     from: { opacity: 0 },
@@ -18,6 +20,7 @@ export const Content: React.FC<ContentProps> = () => {
 
   const onSuccess = () => {
     console.log("you're right!");
+    props.setPictureShown(true);
   };
 
   const reorder = (dest: number, src: number, arr: number[]) => {

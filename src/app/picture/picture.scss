@@ -1,0 +1,21 @@
+.picture-background{
+  height: 100vh;
+  width: 100%;
+  background-color: #e590b010;
+  display: flex;
+  top: 0;
+  left: 0;
+  justify-content: center;
+  align-items: center;
+  .picture {
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img{
+      border-radius: 4px;
+      max-height: 80vh;
+      max-width: 80vw;
+    }
+  }
+}
