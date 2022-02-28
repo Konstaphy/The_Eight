@@ -4,6 +4,7 @@ import { animated, config, useSpring } from "react-spring";
 import { DragDropContext, DropResult } from "react-beautiful-dnd";
 import { SquaresList } from "./squaresList/squaresList";
 import { useRandomNumbers } from "../hooks/useRandomNumbers";
+import { Title } from "./title/title";
 
 interface ContentProps {}
 
@@ -41,6 +42,7 @@ export const Content: React.FC<ContentProps> = () => {
   return (
     <DragDropContext onDragEnd={onDragEnd}>
       <animated.main style={st} className="content">
+        <Title />
         <SquaresList setNumbers={setNumber} numbers={numbers} />
       </animated.main>
     </DragDropContext>
