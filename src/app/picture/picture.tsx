@@ -17,7 +17,7 @@ export const Picture: React.FC<PictureProps> = (props) => {
     to: { opacity: 1 },
     from: { opacity: 0 },
     config: config.molasses,
-    delay: 1000,
+    delay: 500,
   });
 
   return (

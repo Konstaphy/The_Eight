@@ -23,5 +23,3 @@ export const App: React.FC<GlobalProps> = () => {
     </div>
   );
 };
-
-//TODO: милый текст и картинки
