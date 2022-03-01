@@ -1,7 +1,7 @@
 import React from "react";
 import "./picture.scss";
 import { animated, config, useSpring } from "react-spring";
-import getRandomPicture from "../../utils/getRandomPicture";
+import { getRandomPicture } from "../../utils/getRandomPicture";
 
 interface PictureProps {
   setPictureShown: (isPictureShown: boolean) => void;
