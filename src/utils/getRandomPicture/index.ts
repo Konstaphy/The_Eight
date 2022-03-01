@@ -7,8 +7,9 @@ import five from "assets/5.jpg";
 import six from "assets/6.jpg";
 import seven from "assets/7.jpg";
 import eight from "assets/8.jpg";
+import nine from "assets/9.jpg";
 
-export default () => {
+export const getRandomPicture = () => {
   const number = Math.floor(Math.random() * 9);
   switch (number) {
     case 0:
@@ -29,5 +30,7 @@ export default () => {
       return seven;
     case 8:
       return eight;
+    case 9:
+      return nine;
   }
 };
